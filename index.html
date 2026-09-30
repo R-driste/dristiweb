@@ -28,19 +28,19 @@
 .ascii-cat {
   position: relative;
 
-  width: 180px;
-  height: 150px;
+  width: 200px;
+  height: 170px;
 
   flex: 0 0 180px;
 
   font-family: "Courier New", monospace;
-  font-size: 25px;
+  font-size: 28px;
   line-height: 1.08;
   font-weight: 700;
 
   color: var(--blue);
 
-  transform: rotate(2deg);
+  transform: rotate(5deg);
 }
 
 .cat-frame {
@@ -297,45 +297,39 @@
        ========================================= */
 
     .frame {
-      width: 100%;
-      aspect-ratio: 16 / 10;
+        width: calc(100% - 12px);
+        margin-left: 6px;
 
-      flex: 0 0 auto;
+        aspect-ratio: 16 / 13;
+        flex: 0 0 auto;
 
-      padding: 0.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
 
-      background: var(--frame);
-      border: 2px solid var(--ink);
-      border-radius: 18px;
+        padding: 0.6rem;
+        background: var(--frame);
+        border: 2px solid var(--blue);
+        border-radius: 18px;
+        box-shadow: 6px 6px 0 var(--yellow);
 
-      box-shadow: 6px 6px 0 var(--yellow);
-
-      overflow: hidden;
-
-      transform-origin: center center;
-    }
+        overflow: hidden;
+        transform-origin: center center;
+      }
 
     .frame img,
     .frame svg {
       display: block;
 
       width: 100%;
-      height: 100%;
+      height: auto;
+      min-height: 0;
+      flex: 1 1 auto;
 
       object-fit: cover;
       object-position: center;
 
       border-radius: 11px;
-    }
-
-    .caption {
-      margin-top: 0.45rem;
-
-      font-family: "Caveat", cursive;
-      font-size: 1.25rem;
-
-      color: var(--blue);
-      text-align: center;
     }
 
     /*
@@ -376,87 +370,6 @@
 
       to {
         transform: translateY(-50%);
-      }
-    }
-
-    /* =========================================
-       SHORT DESKTOP
-       Switch the SAME single rail to horizontal.
-       ========================================= */
-
-    @media (max-height: 720px) and (min-width: 800px) {
-      .page {
-        grid-template-columns: minmax(0, 1fr) 1fr;
-        gap: 3rem;
-
-        padding: 2rem 0;
-      }
-
-      .rail {
-        height: 220px;
-        min-height: 220px;
-
-        -webkit-mask-image: linear-gradient(
-          to right,
-          transparent 0,
-          black 25px,
-          black calc(100% - 25px),
-          transparent 100%
-        );
-
-        mask-image: linear-gradient(
-          to right,
-          transparent 0,
-          black 25px,
-          black calc(100% - 25px),
-          transparent 100%
-        );
-      }
-
-      .film {
-        flex-direction: row;
-
-        width: max-content;
-        height: 100%;
-
-        animation: scroll-right 30s linear infinite;
-      }
-
-      .film-set {
-        flex-direction: row;
-
-        width: max-content;
-        height: 100%;
-
-        gap: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 0;
-      }
-
-      /*
-        Fixed landscape dimensions.
-
-        flex-shrink: 0 is important here.
-        It prevents the browser from squeezing the
-        pictures when they are placed next to each other.
-      */
-      .frame {
-        width: 250px;
-        height: 190px;
-
-        aspect-ratio: auto;
-
-        flex: 0 0 250px;
-      }
-
-      @keyframes scroll-right {
-        from {
-          transform: translateX(0);
-        }
-
-        to {
-          transform: translateX(-50%);
-        }
       }
     }
 
@@ -516,7 +429,8 @@
         flex-direction: row;
 
         width: max-content;
-        height: 100%;
+        height: auto;
+        align-items: center;
 
         gap: 1rem;
         padding-right: 1rem;
@@ -566,10 +480,10 @@
       <div class="hello-row">
       <div class="hero-row">
         <div class="hero-text">
-          <h2>hi, I'm Dristi 👋</h2>
+          <h2>Hi, I'm Dristi :D👋</h2>
 
           <div class="subtitle">
-            CS freshman @ UCLA
+            CS 2030 @ UCLA
           </div>
         </div>
 
@@ -657,370 +571,65 @@
 
     <aside class="rail" aria-label="Pictures">
       <div class="film">
-
-        <!-- FIRST SET -->
         <div class="film-set">
-
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#E8EEF8"/>
-              <path
-                d="M20 145 C55 110, 75 135, 105 100 S155 80, 180 110 S230 135, 280 65"
-                fill="none"
-                stroke="#3E72C4"
-                stroke-width="7"
-                stroke-linecap="round"
-              />
-              <circle cx="72" cy="75" r="13" fill="#F2C94C"/>
-              <circle cx="125" cy="52" r="9" fill="#3E72C4"/>
-              <circle cx="205" cy="78" r="11" fill="#F2C94C"/>
-            </svg>
-
-            <div class="caption">SLMs & circuits</div>
+            <img src="./photos/web/American_Protege-05-26-2025-7432.jpg" alt="Dristi performing at the piano" loading="lazy" decoding="async" />
           </div>
-
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#FFF9D9"/>
-
-              <rect x="28" y="42" width="244" height="105" rx="8"
-                    fill="#FFFDF5"
-                    stroke="#1E2A3A"
-                    stroke-width="4"/>
-
-              <line x1="52" y1="42" x2="52" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="76" y1="42" x2="76" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="100" y1="42" x2="100" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="124" y1="42" x2="124" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="148" y1="42" x2="148" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="172" y1="42" x2="172" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="196" y1="42" x2="196" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="220" y1="42" x2="220" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="244" y1="42" x2="244" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-
-              <rect x="45" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="69" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="117" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="141" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="165" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="213" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="237" y="42" width="12" height="60" fill="#1E2A3A"/>
-            </svg>
-
-            <div class="caption">piano</div>
+            <img src="./photos/web/IMG_7788.jpg" alt="Dristi with a friend at a research poster" loading="lazy" decoding="async" />
           </div>
-
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#E8EEF8"/>
-
-              <circle
-                cx="150"
-                cy="45"
-                r="20"
-                fill="#F2C94C"
-                stroke="#1E2A3A"
-                stroke-width="5"
-              />
-
-              <line x1="150" y1="66" x2="150" y2="125"
-                    stroke="#1E2A3A" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <line x1="150" y1="82" x2="110" y2="105"
-                    stroke="#1E2A3A" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <line x1="150" y1="82" x2="190" y2="105"
-                    stroke="#1E2A3A" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <line x1="150" y1="125" x2="120" y2="155"
-                    stroke="#1E2A3A" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <line x1="150" y1="125" x2="180" y2="155"
-                    stroke="#1E2A3A" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <circle cx="105" cy="108" r="7" fill="#3E72C4"/>
-              <circle cx="195" cy="108" r="7" fill="#3E72C4"/>
-            </svg>
-
-            <div class="caption">robotics</div>
+            <img src="./photos/web/IMG_9622.jpg" alt="A large Hack Club group at an event" loading="lazy" decoding="async" />
           </div>
-
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#FFF9D9"/>
-
-              <rect x="72" y="45" width="156" height="105" rx="28"
-                    fill="#E8EEF8"
-                    stroke="#1E2A3A"
-                    stroke-width="6"/>
-
-              <circle cx="120" cy="92" r="12" fill="#3E72C4"/>
-              <circle cx="180" cy="92" r="12" fill="#3E72C4"/>
-
-              <path
-                d="M115 120 Q150 140 185 120"
-                fill="none"
-                stroke="#1E2A3A"
-                stroke-width="6"
-                stroke-linecap="round"
-              />
-
-              <line x1="150" y1="45" x2="150" y2="25"
-                    stroke="#1E2A3A" stroke-width="6"
-                    stroke-linecap="round"/>
-
-              <circle cx="150" cy="18" r="8" fill="#F2C94C"/>
-            </svg>
-
-            <div class="caption">hardware</div>
+            <img src="./photos/web/IMG_3545.jpg" alt="A colorful circuit design drawn on a whiteboard" loading="lazy" decoding="async" />
           </div>
-
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#E8EEF8"/>
-
-              <rect x="55" y="30" width="190" height="130" rx="12"
-                    fill="#FFFDF5"
-                    stroke="#1E2A3A"
-                    stroke-width="5"/>
-
-              <line x1="80" y1="60" x2="155" y2="60"
-                    stroke="#3E72C4" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <line x1="80" y1="85" x2="210" y2="85"
-                    stroke="#1E2A3A" stroke-width="6"
-                    stroke-linecap="round"/>
-
-              <line x1="80" y1="108" x2="190" y2="108"
-                    stroke="#1E2A3A" stroke-width="6"
-                    stroke-linecap="round"/>
-
-              <line x1="80" y1="131" x2="165" y2="131"
-                    stroke="#F2C94C" stroke-width="7"
-                    stroke-linecap="round"/>
-            </svg>
-
-            <div class="caption">mech interp</div>
+            <img src="./photos/web/IMG_2524.jpg" alt="Dristi and a friend in a research lab" loading="lazy" decoding="async" />
           </div>
-
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#FFF9D9"/>
-
-              <path
-                d="M50 95 C75 60, 95 130, 120 95 S165 60, 190 95 S235 130, 260 95"
-                fill="none"
-                stroke="#3E72C4"
-                stroke-width="8"
-                stroke-linecap="round"
-              />
-
-              <circle cx="50" cy="95" r="10" fill="#F2C94C"/>
-              <circle cx="260" cy="95" r="10" fill="#F2C94C"/>
-            </svg>
-
-            <div class="caption">flute</div>
+            <img src="./photos/web/IMG_4698.jpg" alt="Friends showing off a robotics project at a build event" loading="lazy" decoding="async" />
           </div>
-
+          <div class="frame">
+            <img src="./photos/web/IMG_9351.jpg" alt="Friends together at sunset" loading="lazy" decoding="async" />
+          </div>
+          <div class="frame">
+            <img src="./photos/web/38C99546-1CAF-4CE2-9586-DFA5A84073F4.jpg" alt="Friends sharing a meal" loading="lazy" decoding="async" />
+          </div>
+          <div class="frame">
+            <img src="./photos/web/classicu.jpg" alt="Friends at a Hack Club Campfire event" loading="lazy" decoding="async" />
+          </div>
         </div>
 
-
-        <!-- SECOND IDENTICAL SET FOR SEAMLESS LOOP -->
-        <div class="film-set">
-
+        <div class="film-set" aria-hidden="true">
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#E8EEF8"/>
-              <path
-                d="M20 145 C55 110, 75 135, 105 100 S155 80, 180 110 S230 135, 280 65"
-                fill="none"
-                stroke="#3E72C4"
-                stroke-width="7"
-                stroke-linecap="round"
-              />
-              <circle cx="72" cy="75" r="13" fill="#F2C94C"/>
-              <circle cx="125" cy="52" r="9" fill="#3E72C4"/>
-              <circle cx="205" cy="78" r="11" fill="#F2C94C"/>
-            </svg>
-
-            <div class="caption">SLMs & circuits</div>
+            <img src="./photos/web/American_Protege-05-26-2025-7432.jpg" alt="" loading="lazy" decoding="async" />
           </div>
-
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#FFF9D9"/>
-
-              <rect x="28" y="42" width="244" height="105" rx="8"
-                    fill="#FFFDF5"
-                    stroke="#1E2A3A"
-                    stroke-width="4"/>
-
-              <line x1="52" y1="42" x2="52" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="76" y1="42" x2="76" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="100" y1="42" x2="100" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="124" y1="42" x2="124" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="148" y1="42" x2="148" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="172" y1="42" x2="172" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="196" y1="42" x2="196" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="220" y1="42" x2="220" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-              <line x1="244" y1="42" x2="244" y2="147"
-                    stroke="#1E2A3A" stroke-width="3"/>
-
-              <rect x="45" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="69" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="117" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="141" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="165" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="213" y="42" width="12" height="60" fill="#1E2A3A"/>
-              <rect x="237" y="42" width="12" height="60" fill="#1E2A3A"/>
-            </svg>
-
-            <div class="caption">piano</div>
+            <img src="./photos/web/IMG_7788.jpg" alt="" loading="lazy" decoding="async" />
           </div>
-
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#E8EEF8"/>
-
-              <circle
-                cx="150"
-                cy="45"
-                r="20"
-                fill="#F2C94C"
-                stroke="#1E2A3A"
-                stroke-width="5"
-              />
-
-              <line x1="150" y1="66" x2="150" y2="125"
-                    stroke="#1E2A3A" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <line x1="150" y1="82" x2="110" y2="105"
-                    stroke="#1E2A3A" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <line x1="150" y1="82" x2="190" y2="105"
-                    stroke="#1E2A3A" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <line x1="150" y1="125" x2="120" y2="155"
-                    stroke="#1E2A3A" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <line x1="150" y1="125" x2="180" y2="155"
-                    stroke="#1E2A3A" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <circle cx="105" cy="108" r="7" fill="#3E72C4"/>
-              <circle cx="195" cy="108" r="7" fill="#3E72C4"/>
-            </svg>
-
-            <div class="caption">robotics</div>
+            <img src="./photos/web/IMG_9622.jpg" alt="" loading="lazy" decoding="async" />
           </div>
-
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#FFF9D9"/>
-
-              <rect x="72" y="45" width="156" height="105" rx="28"
-                    fill="#E8EEF8"
-                    stroke="#1E2A3A"
-                    stroke-width="6"/>
-
-              <circle cx="120" cy="92" r="12" fill="#3E72C4"/>
-              <circle cx="180" cy="92" r="12" fill="#3E72C4"/>
-
-              <path
-                d="M115 120 Q150 140 185 120"
-                fill="none"
-                stroke="#1E2A3A"
-                stroke-width="6"
-                stroke-linecap="round"
-              />
-
-              <line x1="150" y1="45" x2="150" y2="25"
-                    stroke="#1E2A3A" stroke-width="6"
-                    stroke-linecap="round"/>
-
-              <circle cx="150" cy="18" r="8" fill="#F2C94C"/>
-            </svg>
-
-            <div class="caption">hardware</div>
+            <img src="./photos/web/IMG_3545.jpg" alt="" loading="lazy" decoding="async" />
           </div>
-
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#E8EEF8"/>
-
-              <rect x="55" y="30" width="190" height="130" rx="12"
-                    fill="#FFFDF5"
-                    stroke="#1E2A3A"
-                    stroke-width="5"/>
-
-              <line x1="80" y1="60" x2="155" y2="60"
-                    stroke="#3E72C4" stroke-width="7"
-                    stroke-linecap="round"/>
-
-              <line x1="80" y1="85" x2="210" y2="85"
-                    stroke="#1E2A3A" stroke-width="6"
-                    stroke-linecap="round"/>
-
-              <line x1="80" y1="108" x2="190" y2="108"
-                    stroke="#1E2A3A" stroke-width="6"
-                    stroke-linecap="round"/>
-
-              <line x1="80" y1="131" x2="165" y2="131"
-                    stroke="#F2C94C" stroke-width="7"
-                    stroke-linecap="round"/>
-            </svg>
-
-            <div class="caption">mech interp</div>
+            <img src="./photos/web/IMG_2524.jpg" alt="" loading="lazy" decoding="async" />
           </div>
-
           <div class="frame">
-            <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="190" rx="12" fill="#FFF9D9"/>
-
-              <path
-                d="M50 95 C75 60, 95 130, 120 95 S165 60, 190 95 S235 130, 260 95"
-                fill="none"
-                stroke="#3E72C4"
-                stroke-width="8"
-                stroke-linecap="round"
-              />
-
-              <circle cx="50" cy="95" r="10" fill="#F2C94C"/>
-              <circle cx="260" cy="95" r="10" fill="#F2C94C"/>
-            </svg>
-
-            <div class="caption">flute</div>
+            <img src="./photos/web/IMG_4698.jpg" alt="" loading="lazy" decoding="async" />
           </div>
-
+          <div class="frame">
+            <img src="./photos/web/IMG_9351.jpg" alt="" loading="lazy" decoding="async" />
+          </div>
+          <div class="frame">
+            <img src="./photos/web/38C99546-1CAF-4CE2-9586-DFA5A84073F4.jpg" alt="" loading="lazy" decoding="async" />
+          </div>
+          <div class="frame">
+            <img src="./photos/web/classicu.jpg" alt="" loading="lazy" decoding="async" />
+          </div>
         </div>
-
       </div>
     </aside>
 
